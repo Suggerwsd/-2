@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>修车预约系统</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>修车预约系统</h1>
+    <!-- 在这里添加时间表和预约表单 -->
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<form id="appointmentForm"> action="https://formspree.io/f/xzzppwoe" method="POST">
+    <!-- 表单内容 -->
+    <input type="text" name="name" placeholder="姓名" required>
+    <input type="email" name="email" placeholder="电子邮件" required>
+    <!-- 其他表单字段 -->
+    <input type="submit" value="提交">
+</form>
+
+    <label for="name">姓名：</label>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="phone">联系电话：</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br>
+    
+    <label for="time">预约时间：</label>
+    <select id="time" name="time" required>
+      <option value="9:00 AM">9:00 AM</option>
+      <option value="10:00 AM">10:00 AM</option>
+      <!-- 其他时间选项 -->
+    </select><br><br>
+    
+    <button type="submit">提交预约</button>
+  </form>
+  <p id="confirmation"></p >
+<!-- 在需要添加括号的地方 -->
+<p>这是中文指示 <span id="languages">(日本語 / English)</span></p >
+<!-- 在合适的位置添加留言表单 -->
+<form id="contactForm">
+    <label for="name">姓名：</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">电子邮件：</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="phone">联系电话：</label>
+    <input type="tel" id="phone" name="phone"><br><br>
+
+    <label for="message">问题描述：</label><br>
+    <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+    <input type="submit" value="提交">
+</form>
+  <!-- 在表单中添加复选框列表和备注框 -->
+<form id="appointmentForm">
+    <!-- 其他表单元素（姓名、电话、预约时间等） -->
+    
+    <p>选择基础业务：</p >
+    <input type="checkbox" id="changeTire" name="service" value="更换轮胎">
+    <label for="changeTire"> 更换轮胎</label><br>
+    
+    <input type="checkbox" id="buyWheel" name="service" value="购买轮毂轮胎">
+    <label for="buyWheel"> 购买轮毂轮胎（备注型号）</label><br>
+    
+    <input type="checkbox" id="replaceBumper" name="service" value="更换或维修保险杠">
+    <label for="replaceBumper"> 更换或维修保险杠（备注车辆型号）</label><br>
+    
+    <!-- 其他业务复选框 -->
+    
+    <label for="additionalNotes">备注：</label><br>
+    <textarea id="additionalNotes" name="additionalNotes" rows="4" cols="50"></textarea><br><br>
+    
+    <input type="submit" value="提交预约">
+</form>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛喜自动车</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>赛喜自动车</h1>
+        <p>您的专业自动车修理和买卖服务</p >
+    </header>
+    
+    <main>
+        <section id="services">
+            <h2>主要业务</h2>
+            <ul>
+                <li>自动车修理</li>
+                <li>自动车买卖</li>
+                <li>钣金喷漆</li>
+                <!-- 其他业务 -->
+            </ul>
+        </section>
+        
+        <section id="appointment">
+            <h2>预约服务</h2>
+            <!-- 预约表单或其他内容 -->
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 赛喜自动车. All rights reserved.</p >
+    </footer>
+</body>
+</html>
