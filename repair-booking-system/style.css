@@ -1,32 +1,72 @@
 /* 设置整个页面的背景色和字体样式 */
 
-body {
-    background-color: #f0f0f0; /* 浅灰色背景 */
-    font-family: Arial, sans-serif; /* 设置字体为Arial，如果用户设备上没有Arial字体，则使用系统默认的sans-serif字体 */
-    color: #333; /* 设置文字颜色为深灰色 */
-    margin: 0; /* 去除页面默认的外边距 */
-    padding: 0; /* 去除页面默认的内边距 */
-  }
   
-  /* 容器样式，用于包裹页面内容 */
-  .container {
-    max-width: 600px; /* 设置容器最大宽度为600px */
-    margin: 20px auto; /* 在页面顶部和底部留出20px的空白，左右自动居中 */
-    padding: 20px; /* 内部内容与容器边框的距离为20px */
-    background-color: #fff; /* 白色背景 */
-    border-radius: 8px; /* 边框圆角为8px */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加轻微阴影效果 */
-  }
   
   /* 标题样式 */
   h1 {
     text-align: center; /* 文字居中 */
-    color: #007bff; /* 蓝色标题 */
+    color: #eff2f6; /* 蓝色标题 */
   }
 #languages {
-    color: blue; /* 例：设置颜色为蓝色 */
+    color: rgb(203, 214, 220); /* 例：设置颜色为蓝色 */
 }
 /* style.css */
+.header {
+    background-color: #100ba8;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #00ffcc;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.header:hover::after {
+    transform: scaleX(1);
+}
+#appointmentForm {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+input[type="date"], select, button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #00ffcc;
+    color: #111;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00e6b8;
+}
+
 .appointment-time {
     border: 1px solid #ccc;
     padding: 10px;
@@ -43,12 +83,12 @@ body {
   }
   body {
     .your-class {
-        background-image: url('file:///C:/Users/Administrator/Desktop/微信图片/20240627144503.jpg');
+        background-image: url('C:\Users\Administrator\Desktop\wsd');
     }    
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #ffffff; /* 设置文字颜色为白色，确保在深色背景上可见 */
+    color: #ecebf0; /* 设置文字颜色为白色，确保在深色背景上可见 */
 }
 body {
     font-family: 'Roboto', Arial, sans-serif; /* 使用适合的字体 */
@@ -56,7 +96,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #ffffff; /* 设置文字颜色为白色，确保在深色背景上可见 */
+    color: #071148e7; /* 设置文字颜色为白色，确保在深色背景上可见 */
     margin: 0;
     padding: 0;
 }
@@ -84,7 +124,7 @@ section {
 
 section h2 {
     font-size: 2.5em;
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid #081d33;
     padding-bottom: 10px;
 }
 
@@ -104,6 +144,14 @@ footer {
     background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
 }
 
-footer p {
-    font-size: 0.8em;
+.company-name {
+ text-align: center; /* 文字居中对齐 */
+ margin: 20px 0; /* 添加一些上下边距 */
+ }
+    
+.company-name p {
+    
+ max-width: 600px; /* 可选：限制段落宽度 */
+ margin: 0 auto; /* 可选：使段落在居中时左右有一定的间距 */
 }
+    

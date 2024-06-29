@@ -3,64 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>修车预约系统</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap"> <!-- 引入艺术字体 -->
+  <style>
+    body {
+        font-family: 'Arial', sans-serif; /* 默认字体 */
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+  
+    .header {
+        background-color: #100ba8;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+    
+    .header h1 {
+        font-family: 'Baloo Tamma 2', cursive; /* 艺术字体 */
+        font-size: 3em; /* 增大字体 */
+        margin: 0;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>修车预约系统</h1>
-    <!-- 在这里添加时间表和预约表单 -->
+  <div class="header">
+    <h1>赛喜自动车</h1>
   </div>
-  <script src="script.js"></script>
-</body>
-</html>
-<form id="appointmentForm"> action="https://formspree.io/f/xzzppwoe" method="POST">
-    <!-- 表单内容 -->
-    <input type="text" name="name" placeholder="姓名" required>
-    <input type="email" name="email" placeholder="电子邮件" required>
-    <!-- 其他表单字段 -->
-    <input type="submit" value="提交">
-</form>
-
-    <label for="name">姓名：</label>
-    <input type="text" id="name" name="name" required><br><br>
-    
-    <label for="phone">联系电话：</label>
-    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br>
-    
-    <label for="time">预约时间：</label>
+  
+  <div class="container">
+    <h2 class="main-title">修车预约系统</h2>
+    <!-- 表单 -->
+    <form id="appointmentForm">
+      <!-- 预约日期 -->
+      <label for="appointmentDate">预约日期：</label>
+      <input type="date" id="appointmentDate" name="appointmentDate" min="2024-01-01" max="2029-12-31" required><br><br>
+        <label for="time">预约时间：</label>
     <select id="time" name="time" required>
-      <option value="9:00 AM">9:00 AM</option>
-      <option value="10:00 AM">10:00 AM</option>
+    
+      <option value="10:00 AM">10:00</option>
+      <option value="11:00">11:00</option>
+      <option value="12:00">12:00</option>
+      <option value="14:00">2:00</option>
+      <option value="15:00">3:00</option>
+      <option value="16:00">4:00</option>
+      <option value="17:00">5:00</option>
+      <option value="18:00">6:00</option>
       <!-- 其他时间选项 -->
     </select><br><br>
+      
+      <!-- 姓名 -->
+      <label for="name">姓名：</label>
+      <input type="text" id="name" name="name" required><br><br>
+      
+      <!-- 电子邮件 -->
+      <label for="email">电子邮件：</label>
+      <input type="email" id="email" name="email" required><br><br>
+      
+      <!-- 联系电话 -->
+      <label for="phone">联系电话：</label>
+      <input type="tel" id="phone" name="phone"><br><br>
+      
+      <!-- 问题描述 -->
+      <label for="message">问题描述：</label><br>
+      <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
     
-    <button type="submit">提交预约</button>
-  </form>
-  <p id="confirmation"></p >
-<!-- 在需要添加括号的地方 -->
-<p>这是中文指示 <span id="languages">(日本語 / English)</span></p >
-<!-- 在合适的位置添加留言表单 -->
-<form id="contactForm">
-    <label for="name">姓名：</label>
-    <input type="text" id="name" name="name" required><br><br>
+      <!-- 选择基础业务 -->
+      <p>选择基础业务：</p >
 
-    <label for="email">电子邮件：</label>
-    <input type="email" id="email" name="email" required><br><br>
-
-    <label for="phone">联系电话：</label>
-    <input type="tel" id="phone" name="phone"><br><br>
-
-    <label for="message">问题描述：</label><br>
-    <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-
-    <input type="submit" value="提交">
-</form>
-  <!-- 在表单中添加复选框列表和备注框 -->
-<form id="appointmentForm">
-    <!-- 其他表单元素（姓名、电话、预约时间等） -->
-    
-    <p>选择基础业务：</p >
     <input type="checkbox" id="changeTire" name="service" value="更换轮胎">
     <label for="changeTire"> 更换轮胎</label><br>
     
@@ -70,12 +84,41 @@
     <input type="checkbox" id="replaceBumper" name="service" value="更换或维修保险杠">
     <label for="replaceBumper"> 更换或维修保险杠（备注车辆型号）</label><br>
     
+    <input type="checkbox" id="carBuySell" name="service" value="自动车买卖">
+    <label for="carBuySell"> 自动车买卖</label><br>
+    
+    <input type="checkbox" id="painting" name="service" value="钣金喷漆">
+    <label for="painting"> 钣金喷漆</label><br>
+    
+    <input type="checkbox" id="inspection" name="service" value="点检·车检代行">
+    <label for="inspection"> 点检·车检代行</label><br>
+    
+    <input type="checkbox" id="changeOil" name="service" value="更换机油机油滤芯">
+    <label for="changeOil"> 更换机油机油滤芯</label><br>
+
+    <input type="checkbox" id="otherService" name="service" value="其他">
+    <label for="otherService"> 其他（请注明）</label><br>
+    
+    
     <!-- 其他业务复选框 -->
     
-    <label for="additionalNotes">备注：</label><br>
-    <textarea id="additionalNotes" name="additionalNotes" rows="4" cols="50"></textarea><br><br>
+          <!-- 备注 -->
+      <label for="additionalNotes">备注：</label><br>
+      <textarea id="additionalNotes" name="additionalNotes" rows="4" cols="50"></textarea><br><br>
     
-    <input type="submit" value="提交预约">
+      <!-- 提交预约按钮 -->
+      <button type="submit">提交预约</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!-- 在提交按钮后添加一个图标 -->
+<div style="text-align: center;">
+    <i class="fas fa-check-circle" style="color: #00ffcc; font-size: 36px;"></i>
+</div>
+
 </form>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -84,13 +127,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>赛喜自动车</title>
     <link rel="stylesheet" href="style.css">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛喜自动车 - 专业汽车服务</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>赛喜自动车</h1>
-        <p>您的专业自动车修理和买卖服务</p >
+
+<div class="company-name">
+    <h1>赛喜自动车</h1>
+    <p>赛喜自动车 您的专业自动车修理和买卖服务 致力于服务大众 给大家带来便利与快乐 感谢各位一直以来的陪伴与支持 
+      赛喜自动车的所有员工向您表示诚挚的谢意与真诚的祝福 
+      愿您 顺遂无虞 皆得所愿
+      愿您 在平凡的日子里 静看岁月慢慢 拥抱平平安安 </p >
     </header>
-    
+
     <main>
         <section id="services">
             <h2>主要业务</h2>
@@ -98,6 +152,9 @@
                 <li>自动车修理</li>
                 <li>自动车买卖</li>
                 <li>钣金喷漆</li>
+                <li>车检代行</li>
+                <li>车辆点检</li>
+                <li>更换机油机滤芯</li>
                 <!-- 其他业务 -->
             </ul>
         </section>
@@ -107,9 +164,5 @@
             <!-- 预约表单或其他内容 -->
         </section>
     </main>
-    
-    <footer>
-        <p>&copy; 2024 赛喜自动车. All rights reserved.</p >
-    </footer>
-</body>
-</html>
+
+   

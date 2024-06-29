@@ -1,26 +1,38 @@
 // 等待页面加载完成后执行
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('appointmentForm'); // 获取预约表单元素
+    const form = document.getElementById('appointmentForm');
     const confirmation = document.getElementById('confirmation'); // 获取显示确认信息的元素
-  
+
     // 监听预约表单提交事件
     form.addEventListener('submit', function(event) {
-      event.preventDefault(); // 阻止表单默认提交行为
-  
-      // 获取表单中的输入值
-      const name = form.elements['name'].value.trim();
-      const phone = form.elements['phone'].value.trim();
-      const time = form.elements['time'].value;
-  
-      // 做一些基本的输入验证，比如姓名和电话不能为空
-      if (name === '' || phone === '') {
-        alert('请填写姓名和电话号码！');
-        return;
-      }
-  
-      // 构建确认信息
-      const confirmationText = `感谢您的预约，${name}！您已成功预约时间：${time}。我们会尽快与您联系确认。`;
-  
+        event.preventDefault(); // 阻止表单默认提交行为
+
+        // 获取表单中的输入值
+        const name = form.elements['name'].value.trim();
+        const phone = form.elements['phone'].value.trim();
+        const appointmentDate = form.elements['appointmentDate'].value;
+        const time = form.elements['time'].value;
+
+        // 基本的输入验证，姓名、电话和预约日期不能为空
+        if (name === '' || phone === '' || appointmentDate === '') {
+            alert('请填写姓名、电话和选择预约日期！');
+            return;
+        }
+
+        // 构建确认信息
+        let confirmationText = `感谢您的预约，${name}！`;
+
+        // 格式化预约日期为 yyyy-mm-dd
+        const formattedDate = new Date(appointmentDate).toLocaleDateString('en-CA', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        }).replace(/\//g, '-');
+
+        // 添加预约日期和时间到确认信息中
+        confirmationText += `您已成功预约于 ${formattedDate} ${time} 的服务时间。`;
+        confirmationText += `我们会尽快与您联系确认。`;
+
       // 显示确认信息
       confirmation.textContent = confirmationText;
   
@@ -144,5 +156,31 @@ appointmentForm.addEventListener('submit', function(event) {
     })
     .catch(error => {
         alert('提交预约时出错：' + error.message);
+    });
+});
+// 在文档加载完成后运行脚本
+document.addEventListener('DOMContentLoaded', function() {
+    // 获取表单元素
+    const form = document.getElementById('appointmentForm');
+    
+    // 添加提交事件监听器
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // 阻止表单默认提交行为
+        
+        // 获取选中的服务项目
+        const selectedServices = Array.from(form.querySelectorAll('input[name="service"]:checked'))
+                                   .map(input => input.value);
+        
+        // 获取备注信息
+        const additionalNotes = form.querySelector('#additionalNotes').value;
+        
+        // 在这里可以将选中的服务项目和备注信息发送到服务器或进行其他处理
+        console.log('选中的服务项目:', selectedServices);
+        console.log('备注信息:', additionalNotes);
+        
+        // 在这里可以添加进一步的逻辑，例如显示成功消息或重置表单
+        // 例如：
+        // form.reset(); // 重置表单
+        // alert('预约提交成功！'); // 弹出成功消息
     });
 });
